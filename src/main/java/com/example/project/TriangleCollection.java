@@ -4,7 +4,8 @@ public class TriangleCollection {
 
     // array of Triangles
     private Triangle[] collection;
-  
+    private int startX;
+    private int startY;
     // Constructor: initialize collection array with the number of
     // Triangle objects specified by numTriangles, with the first
     // Triangle in the collection having vertices at Points:
@@ -29,12 +30,33 @@ public class TriangleCollection {
     // PRECONDITION: numTriangles >= 2
     public TriangleCollection(int numTriangles, int startX, int startY) {
       /* IMPLEMENT ME */
+      this.startX = startX;
+      this.startY = startY;
+      collection = new Triangle[numTriangles];
+      Point p1 = new Point(-startX,0);
+      Point p2 = new Point(-0,startY);
+      Point p3 = new Point(startX,0);
+      collection[0] = new Triangle(p1,p2,p3);
+      for(int i=1;i<numTriangles;i++){
+        p1 = new Point(-startX,0);
+        p2 = new Point(-0,startY);
+        p3 = new Point(startX-i,0);
+        collection[i] = new Triangle(p1,p2,p3);
+      }
     }
   
     // Calculate and return the sum of the perimeters of
     // all Triangles in the collection
     public double totalPerimeter() {
       /* IMPLEMENT ME */
+      double per = 0.0;
+      for(int i=0;i<collection.length;i++){
+        per += collection[i].perimeter();
+      }
+      return per;
+    }
+    public Triangle[] getCollection(){
+      return collection;
     }
   
     // adds increment to both the x and y coordinates of each of the
@@ -42,6 +64,13 @@ public class TriangleCollection {
     // ADD GETTER AND SETTER METHODS TO OTHER CLASSES AS NECESSARY
     public void shiftTriangles(int increment) {
       /* IMPLEMENT ME */
+      for(int i=0;i<collection.length;i++){
+        for(int j=0;j<3;j++){
+        collection[i].getVertices()[j].setX(collection[i].getVertices()[j].getX() + increment);
+        collection[i].getVertices()[j].setY(collection[i].getVertices()[j].getY() + increment);
+
+        }
+      }
     }
   
     // returns a String that contains each Triangle in the 
@@ -54,6 +83,11 @@ public class TriangleCollection {
     //  [(1, 5), (5, 12), (7, 5)]"
     public String triangleCollectionInfo() {
       /* IMPLEMENT ME */
+      String ret = "";
+      for(int i=0;i <collection.length;i++){
+        ret += collection[i].triangleInfo() +"\n";
+      }
+      return ret;
     }
   }
   
