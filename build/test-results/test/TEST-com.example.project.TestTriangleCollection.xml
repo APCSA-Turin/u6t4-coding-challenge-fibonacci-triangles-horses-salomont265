@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.project.TestTriangleCollection" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-01-07T01:11:31" hostname="codespaces-0a95be" time="0.032">
+<testsuite name="com.example.project.TestTriangleCollection" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-01-08T00:16:40" hostname="codespaces-0a95be" time="0.027">
   <properties/>
   <testcase name="testShiftTriangles()" classname="com.example.project.TestTriangleCollection" time="0.017"/>
   <testcase name="testTotalPerimeter()" classname="com.example.project.TestTriangleCollection" time="0.001"/>
